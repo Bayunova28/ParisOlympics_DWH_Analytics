@@ -1,0 +1,747 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "File/D:\\ParisOlympics\\coach csv",
+        "connectionDetails": {
+          "protocol": "file",
+          "address": {
+            "path": "D:\\ParisOlympics\\coach.csv"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "kind": "File",
+          "path": "d:\\parisolympics\\coach.csv"
+        },
+        "contextExpression": [
+          "let",
+          "    #\"0001\" = Csv.Document(..., [Delimiter = \",\", Columns = 10, Encoding = 65001, QuoteStyle = QuoteStyle.None]),",
+          "    #\"0002\" = Table.PromoteHeaders(#\"0001\", [PromoteAllScalars = true]),",
+          "    #\"0003\" = Table.TransformColumnTypes(#\"0002\", {{\"code\", Int64.Type}, {\"name\", type text}, {\"gender\", type text}, {\"function\", type text}, {\"category\", type text}, {\"country_code\", type text}, {\"country\", type text}, {\"country_full\", type text}, {\"disciplines\", type text}, {\"events\", type text}})",
+          "in",
+          "    #\"0003\""
+        ]
+      },
+      {
+        "type": "structured",
+        "name": "File/D:\\ParisOlympics\\athlete csv",
+        "connectionDetails": {
+          "protocol": "file",
+          "address": {
+            "path": "D:\\ParisOlympics\\athlete.csv"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "kind": "File",
+          "path": "d:\\parisolympics\\athlete.csv"
+        },
+        "contextExpression": [
+          "let",
+          "    #\"0001\" = Csv.Document(..., [Delimiter = \",\", Columns = 35, Encoding = 65001, QuoteStyle = QuoteStyle.None]),",
+          "    #\"0002\" = Table.PromoteHeaders(#\"0001\", [PromoteAllScalars = true]),",
+          "    #\"0003\" = Table.TransformColumnTypes(#\"0002\", {{\"code\", Int64.Type}, {\"name\", type text}, {\"name_short\", type text}, {\"name_tv\", type text}, {\"gender\", type text}, {\"function\", type text}, {\"country_code\", type text}, {\"country\", type text}, {\"country_full\", type text}, {\"nationality\", type text}, {\"nationality_full\", type text}, {\"nationality_code\", type text}, {\"height\", Int64.Type}, {\"weight\", Int64.Type}, {\"disciplines\", type text}, {\"events\", type text}, {\"birth_date\", type date}, {\"birth_place\", type text}, {\"birth_country\", type text}, {\"residence_place\", type text}, {\"residence_country\", type text}, {\"nickname\", type text}, {\"hobbies\", type text}, {\"occupation\", type text}, {\"education\", type text}, {\"family\", type text}, {\"lang\", type text}, {\"coach\", type text}, {\"reason\", type text}, {\"hero\", type text}, {\"influence\", type text}, {\"philosophy\", type text}, {\"sporting_relatives\", type text}, {\"ritual\", type text}, {\"other_sports\", type text}})",
+          "in",
+          "    #\"0003\""
+        ]
+      },
+      {
+        "type": "structured",
+        "name": "File/D:\\ParisOlympics\\event csv",
+        "connectionDetails": {
+          "protocol": "file",
+          "address": {
+            "path": "D:\\ParisOlympics\\event.csv"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "kind": "File",
+          "path": "d:\\parisolympics\\event.csv"
+        },
+        "contextExpression": [
+          "let",
+          "    #\"0001\" = Csv.Document(..., [Delimiter = \",\", Columns = 5, Encoding = 65001, QuoteStyle = QuoteStyle.None]),",
+          "    #\"0002\" = Table.TransformColumnTypes(#\"0001\", {{\"Column1\", type text}, {\"Column2\", type text}, {\"Column3\", type text}, {\"Column4\", type text}, {\"Column5\", type text}})",
+          "in",
+          "    #\"0002\""
+        ]
+      },
+      {
+        "type": "structured",
+        "name": "File/D:\\ParisOlympics\\medal csv",
+        "connectionDetails": {
+          "protocol": "file",
+          "address": {
+            "path": "D:\\ParisOlympics\\medal.csv"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "kind": "File",
+          "path": "d:\\parisolympics\\medal.csv"
+        },
+        "contextExpression": [
+          "let",
+          "    #\"0001\" = Csv.Document(..., [Delimiter = \",\", Columns = 11, Encoding = 65001, QuoteStyle = QuoteStyle.None]),",
+          "    #\"0002\" = Table.PromoteHeaders(#\"0001\", [PromoteAllScalars = true]),",
+          "    #\"0003\" = Table.TransformColumnTypes(#\"0002\", {{\"medal_type\", type text}, {\"medal_code\", Int64.Type}, {\"medal_date\", type date}, {\"name\", type text}, {\"country_code\", type text}, {\"gender\", type text}, {\"discipline\", type text}, {\"event\", type text}, {\"event_type\", type text}, {\"url_event\", type text}, {\"code\", type text}})",
+          "in",
+          "    #\"0003\""
+        ]
+      },
+      {
+        "type": "structured",
+        "name": "File/D:\\ParisOlympics\\medal_total csv",
+        "connectionDetails": {
+          "protocol": "file",
+          "address": {
+            "path": "D:\\ParisOlympics\\medal_total.csv"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "kind": "File",
+          "path": "d:\\parisolympics\\medal_total.csv"
+        },
+        "contextExpression": [
+          "let",
+          "    #\"0001\" = Csv.Document(..., [Delimiter = \",\", Columns = 5, Encoding = 1252, QuoteStyle = QuoteStyle.None]),",
+          "    #\"0002\" = Table.PromoteHeaders(#\"0001\", [PromoteAllScalars = true]),",
+          "    #\"0003\" = Table.TransformColumnTypes(#\"0002\", {{\"country_code\", type text}, {\"Gold Medal\", Int64.Type}, {\"Silver Medal\", Int64.Type}, {\"Bronze Medal\", Int64.Type}, {\"Total\", Int64.Type}})",
+          "in",
+          "    #\"0003\""
+        ]
+      },
+      {
+        "type": "structured",
+        "name": "File/D:\\ParisOlympics\\schedule csv",
+        "connectionDetails": {
+          "protocol": "file",
+          "address": {
+            "path": "D:\\ParisOlympics\\schedule.csv"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "kind": "File",
+          "path": "d:\\parisolympics\\schedule.csv"
+        },
+        "contextExpression": [
+          "let",
+          "    #\"0001\" = Csv.Document(..., [Delimiter = \",\", Columns = 16, Encoding = 1252, QuoteStyle = QuoteStyle.None]),",
+          "    #\"0002\" = Table.PromoteHeaders(#\"0001\", [PromoteAllScalars = true]),",
+          "    #\"0003\" = Table.TransformColumnTypes(#\"0002\", {{\"start_date\", type datetime}, {\"end_date\", type text}, {\"day\", type date}, {\"status\", type text}, {\"discipline\", type text}, {\"discipline_code\", type text}, {\"event\", type text}, {\"event_medal\", Int64.Type}, {\"phase\", type text}, {\"gender\", type text}, {\"event_type\", type text}, {\"venue\", type text}, {\"venue_code\", type text}, {\"location_description\", type text}, {\"location_code\", type text}, {\"url\", type text}})",
+          "in",
+          "    #\"0003\""
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "coach",
+        "columns": [
+          {
+            "name": "code",
+            "dataType": "int64",
+            "sourceColumn": "code"
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name"
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender"
+          },
+          {
+            "name": "function",
+            "dataType": "string",
+            "sourceColumn": "function"
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "sourceColumn": "category"
+          },
+          {
+            "name": "country_code",
+            "dataType": "string",
+            "sourceColumn": "country_code"
+          },
+          {
+            "name": "country",
+            "dataType": "string",
+            "sourceColumn": "country"
+          },
+          {
+            "name": "country_full",
+            "dataType": "string",
+            "sourceColumn": "country_full"
+          },
+          {
+            "name": "disciplines",
+            "dataType": "string",
+            "sourceColumn": "disciplines"
+          },
+          {
+            "name": "events",
+            "dataType": "string",
+            "sourceColumn": "events"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source=#\"File/D:\\ParisOlympics\\coach csv\"",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "athlete",
+        "columns": [
+          {
+            "name": "code",
+            "dataType": "int64",
+            "sourceColumn": "code"
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name"
+          },
+          {
+            "name": "name_short",
+            "dataType": "string",
+            "sourceColumn": "name_short"
+          },
+          {
+            "name": "name_tv",
+            "dataType": "string",
+            "sourceColumn": "name_tv"
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender"
+          },
+          {
+            "name": "function",
+            "dataType": "string",
+            "sourceColumn": "function"
+          },
+          {
+            "name": "country_code",
+            "dataType": "string",
+            "sourceColumn": "country_code"
+          },
+          {
+            "name": "country",
+            "dataType": "string",
+            "sourceColumn": "country"
+          },
+          {
+            "name": "country_full",
+            "dataType": "string",
+            "sourceColumn": "country_full"
+          },
+          {
+            "name": "nationality",
+            "dataType": "string",
+            "sourceColumn": "nationality"
+          },
+          {
+            "name": "nationality_full",
+            "dataType": "string",
+            "sourceColumn": "nationality_full"
+          },
+          {
+            "name": "nationality_code",
+            "dataType": "string",
+            "sourceColumn": "nationality_code"
+          },
+          {
+            "name": "height",
+            "dataType": "int64",
+            "sourceColumn": "height"
+          },
+          {
+            "name": "weight",
+            "dataType": "int64",
+            "sourceColumn": "weight"
+          },
+          {
+            "name": "disciplines",
+            "dataType": "string",
+            "sourceColumn": "disciplines"
+          },
+          {
+            "name": "events",
+            "dataType": "string",
+            "sourceColumn": "events"
+          },
+          {
+            "name": "birth_date",
+            "dataType": "dateTime",
+            "sourceColumn": "birth_date"
+          },
+          {
+            "name": "birth_place",
+            "dataType": "string",
+            "sourceColumn": "birth_place"
+          },
+          {
+            "name": "birth_country",
+            "dataType": "string",
+            "sourceColumn": "birth_country"
+          },
+          {
+            "name": "residence_place",
+            "dataType": "string",
+            "sourceColumn": "residence_place"
+          },
+          {
+            "name": "residence_country",
+            "dataType": "string",
+            "sourceColumn": "residence_country"
+          },
+          {
+            "name": "nickname",
+            "dataType": "string",
+            "sourceColumn": "nickname"
+          },
+          {
+            "name": "hobbies",
+            "dataType": "string",
+            "sourceColumn": "hobbies"
+          },
+          {
+            "name": "occupation",
+            "dataType": "string",
+            "sourceColumn": "occupation"
+          },
+          {
+            "name": "education",
+            "dataType": "string",
+            "sourceColumn": "education"
+          },
+          {
+            "name": "family",
+            "dataType": "string",
+            "sourceColumn": "family"
+          },
+          {
+            "name": "lang",
+            "dataType": "string",
+            "sourceColumn": "lang"
+          },
+          {
+            "name": "coach",
+            "dataType": "string",
+            "sourceColumn": "coach"
+          },
+          {
+            "name": "reason",
+            "dataType": "string",
+            "sourceColumn": "reason"
+          },
+          {
+            "name": "hero",
+            "dataType": "string",
+            "sourceColumn": "hero"
+          },
+          {
+            "name": "influence",
+            "dataType": "string",
+            "sourceColumn": "influence"
+          },
+          {
+            "name": "philosophy",
+            "dataType": "string",
+            "sourceColumn": "philosophy"
+          },
+          {
+            "name": "sporting_relatives",
+            "dataType": "string",
+            "sourceColumn": "sporting_relatives"
+          },
+          {
+            "name": "ritual",
+            "dataType": "string",
+            "sourceColumn": "ritual"
+          },
+          {
+            "name": "other_sports",
+            "dataType": "string",
+            "sourceColumn": "other_sports"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source=#\"File/D:\\ParisOlympics\\athlete csv\"",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "event",
+        "columns": [
+          {
+            "name": "event",
+            "dataType": "string",
+            "sourceColumn": "event"
+          },
+          {
+            "name": "tag",
+            "dataType": "string",
+            "sourceColumn": "tag"
+          },
+          {
+            "name": "sport",
+            "dataType": "string",
+            "sourceColumn": "sport"
+          },
+          {
+            "name": "sport_code",
+            "dataType": "string",
+            "sourceColumn": "sport_code"
+          },
+          {
+            "name": "sport_url",
+            "dataType": "string",
+            "sourceColumn": "sport_url"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source=#\"File/D:\\ParisOlympics\\event csv\",",
+                "    #\"Renamed Columns\" = Table.RenameColumns(Source,{{\"Column1\", \"event\"}, {\"Column2\", \"tag\"}, {\"Column3\", \"sport\"}, {\"Column4\", \"sport_code\"}, {\"Column5\", \"sport_url\"}}),",
+                "    #\"Replaced Value\" = Table.ReplaceValue(#\"Renamed Columns\",\"event\",\"\",Replacer.ReplaceText,{\"event\"}),",
+                "    #\"Replaced Value1\" = Table.ReplaceValue(#\"Replaced Value\",\"tag\",\"\",Replacer.ReplaceText,{\"tag\"}),",
+                "    #\"Replaced Value2\" = Table.ReplaceValue(#\"Replaced Value1\",\"sport\",\"\",Replacer.ReplaceText,{\"sport\"}),",
+                "    #\"Replaced Value3\" = Table.ReplaceValue(#\"Replaced Value2\",\"sport_code\",\"\",Replacer.ReplaceText,{\"sport_code\"}),",
+                "    #\"Replaced Value4\" = Table.ReplaceValue(#\"Replaced Value3\",\"sport_url\",\"\",Replacer.ReplaceText,{\"sport_url\"})",
+                "in",
+                "    #\"Replaced Value4\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "medal",
+        "columns": [
+          {
+            "name": "medal_type",
+            "dataType": "string",
+            "sourceColumn": "medal_type"
+          },
+          {
+            "name": "medal_code",
+            "dataType": "int64",
+            "sourceColumn": "medal_code"
+          },
+          {
+            "name": "medal_date",
+            "dataType": "dateTime",
+            "sourceColumn": "medal_date"
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name"
+          },
+          {
+            "name": "country_code",
+            "dataType": "string",
+            "sourceColumn": "country_code"
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender"
+          },
+          {
+            "name": "discipline",
+            "dataType": "string",
+            "sourceColumn": "discipline"
+          },
+          {
+            "name": "event",
+            "dataType": "string",
+            "sourceColumn": "event"
+          },
+          {
+            "name": "event_type",
+            "dataType": "string",
+            "sourceColumn": "event_type"
+          },
+          {
+            "name": "url_event",
+            "dataType": "string",
+            "sourceColumn": "url_event"
+          },
+          {
+            "name": "code",
+            "dataType": "string",
+            "sourceColumn": "code"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source=#\"File/D:\\ParisOlympics\\medal csv\"",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "medal_total",
+        "columns": [
+          {
+            "name": "country_code",
+            "dataType": "string",
+            "sourceColumn": "country_code"
+          },
+          {
+            "name": "Gold Medal",
+            "dataType": "int64",
+            "sourceColumn": "Gold Medal"
+          },
+          {
+            "name": "Silver Medal",
+            "dataType": "int64",
+            "sourceColumn": "Silver Medal"
+          },
+          {
+            "name": "Bronze Medal",
+            "dataType": "int64",
+            "sourceColumn": "Bronze Medal"
+          },
+          {
+            "name": "Total",
+            "dataType": "int64",
+            "sourceColumn": "Total"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source=#\"File/D:\\ParisOlympics\\medal_total csv\"",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "schedule",
+        "columns": [
+          {
+            "name": "start_date",
+            "dataType": "dateTime",
+            "sourceColumn": "start_date"
+          },
+          {
+            "name": "end_date",
+            "dataType": "string",
+            "sourceColumn": "end_date"
+          },
+          {
+            "name": "day",
+            "dataType": "dateTime",
+            "sourceColumn": "day"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status"
+          },
+          {
+            "name": "discipline",
+            "dataType": "string",
+            "sourceColumn": "discipline"
+          },
+          {
+            "name": "discipline_code",
+            "dataType": "string",
+            "sourceColumn": "discipline_code"
+          },
+          {
+            "name": "event",
+            "dataType": "string",
+            "sourceColumn": "event"
+          },
+          {
+            "name": "event_medal",
+            "dataType": "int64",
+            "sourceColumn": "event_medal"
+          },
+          {
+            "name": "phase",
+            "dataType": "string",
+            "sourceColumn": "phase"
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender"
+          },
+          {
+            "name": "event_type",
+            "dataType": "string",
+            "sourceColumn": "event_type"
+          },
+          {
+            "name": "venue",
+            "dataType": "string",
+            "sourceColumn": "venue"
+          },
+          {
+            "name": "venue_code",
+            "dataType": "string",
+            "sourceColumn": "venue_code"
+          },
+          {
+            "name": "location_description",
+            "dataType": "string",
+            "sourceColumn": "location_description"
+          },
+          {
+            "name": "location_code",
+            "dataType": "string",
+            "sourceColumn": "location_code"
+          },
+          {
+            "name": "url",
+            "dataType": "string",
+            "sourceColumn": "url"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source=#\"File/D:\\ParisOlympics\\schedule csv\"",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "78e5c87a-d414-422c-9e3b-fa6de8fe9c34",
+        "fromTable": "athlete",
+        "fromColumn": "country_code",
+        "toTable": "medal_total",
+        "toColumn": "country_code",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "de413fdb-ad0d-45f0-850d-5aba839a8d59",
+        "fromTable": "coach",
+        "fromColumn": "country_code",
+        "toTable": "medal_total",
+        "toColumn": "country_code",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "1cbd4ec6-4644-4bbe-bd84-ef99f506a3b4",
+        "fromTable": "medal",
+        "fromColumn": "country_code",
+        "toTable": "medal_total",
+        "toColumn": "country_code",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "58d602bb-f42c-44a4-98a0-cb74af326048",
+        "toCardinality": "many",
+        "fromTable": "medal",
+        "fromColumn": "event",
+        "toTable": "event",
+        "toColumn": "event",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "aa062cd1-201d-4c94-a0cb-491b3fcc0ac4",
+        "toCardinality": "many",
+        "fromTable": "athlete",
+        "fromColumn": "disciplines",
+        "toTable": "schedule",
+        "toColumn": "discipline",
+        "crossFilteringBehavior": "bothDirections"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
