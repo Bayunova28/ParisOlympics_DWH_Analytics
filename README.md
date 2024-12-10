@@ -6,7 +6,7 @@ sports disciplines, medal standings, and key event details. More about the Olymp
 <img src="https://github.com/Bayunova28/ParisOlympics_DWH_Analytics/blob/main/ParisOlympics-Tabular-Data/DatabaseDiagram.png" height="550" width="1100">
 
 ## ETL Pipeline
-<img src="https://github.com/Bayunova28/ParisOlympics_DWH_Analytics/blob/main/ParisOlympics-ETL-Pipeline/ParisOlympics-Pipeline-ETL.png" height="400" width="1100">
+<img src="https://github.com/Bayunova28/ParisOlympics_DWH_Analytics/blob/main/ParisOlympics-ETL-Pipeline/ParisOlympics-Pipeline-ETL.png" height="450" width="1100">
 
 ## OLAB Multidimensional Tabular Cube
 <img src="https://github.com/Bayunova28/ParisOlympics_DWH_Analytics/blob/main/ParisOlympics-Tabular-Data/OLAB-Tabular-Event-Cube.png" height="600" width="1100">
